@@ -22,9 +22,10 @@ const port = 5000;
 const salt = 10;
 
 app.use(cors({
-  origin: 'https://benevolent-swan-751dff.netlify.app',
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true
+    origin: 'https://benevolent-swan-751dff.netlify.app', // or '*' to allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // specify the methods you want to allow
+    allowedHeaders: ['Content-Type', 'Authorization'], // specify the headers you want to allow
+    credentials: true // if you need to include credentials in requests
 }));
 
 app.use(cookieParser());
