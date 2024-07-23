@@ -31,7 +31,11 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+app.options('*', cors({
+    origin: 'https://benevolent-swan-751dff.netlify.app',
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+}));
 
 
 
