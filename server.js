@@ -22,9 +22,9 @@ const port = 5000;
 const salt = 10;
 
 app.use(cors({
-    origin: ['http://localhost:3000'],
-    methods : ["POST","GET","PUT","DELETE"],
-    credentials : true
+  origin: 'https://benevolent-swan-751dff.netlify.app',
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true
 }));
 
 app.use(cookieParser());
