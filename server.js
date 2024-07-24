@@ -118,7 +118,7 @@ app.post('/login', (req, res) => {
               if (response) {
                   const name = data[0].name;
                   const token = jwt.sign({ name }, "jwt-secret-key", { expiresIn: '1d' });
-                  res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'Lax' }); // Use 'Secure: true' if running on HTTPS
+                  res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'None' }); // Use 'Secure: true' if running on HTTPS
                   return res.json({ Status: "Success" });
               } else {
                   return res.json({ Error: "Password not matched" });
@@ -133,7 +133,7 @@ app.post('/login', (req, res) => {
 app.get('/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
-    sameSite: 'Lax', // This can be 'Strict' or 'Lax' based on your requirements
+    sameSite: 'None', // This can be 'Strict' or 'Lax' based on your requirements
     secure: true      // This should be true if you're running on HTTPS
   });
   return res.json({ Status: "Success" });
